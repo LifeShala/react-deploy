@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+
+import React from 'react';
+import Grid from '@material-ui/core/Grid';
+import Header from './Header';
+import Home from './Home';
+import ProblemPage from './ProblemPage';
+import CourseCatalogue from './CourseCatalogue';
+import { BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import QuizApp from './QuizApp';
+import CourseLanding from "./CourseLanding";
+import Hometest from './Hometest'; 
+import Login from './Login.jsx';
+
 
 function App() {
   return (
+    
+    <Router>
+    
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      
+        
+          <Header /> 
+          
+         
+         <Switch>
+         <Route exact path="/" component={Home}/>
+         <Route exact path="/courses" component={CourseCatalogue}/>
+         <Route exact path="/courselanding" component={CourseLanding}/>
+         <Route exact path="/problem" component={ProblemPage}/>
+         <Route exact path="/test" component={Hometest}/>
+         <Route exact path="/login" component={Login}/>
+         </Switch>
+        
+           
+          
+        
+  </div>
+  </Router>
   );
 }
 
